@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- STYLE SHEET -->
+    <link rel="stylesheet" href="./css/index.css" />
+    <!-- FONT AWEASOME -->
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <!-- BOOTSTRAP  -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <title>Quotes</title>
+  </head>
+  <body>
+    <div class="quote shadow-lg" id="quote">
+      <div class="overlay text-center">
+        <!--Modal -->
+        <div
+          class="modal fade"
+          id="exampleModalToggle"
+          aria-hidden="true"
+          aria-labelledby="exampleModalToggleLabel"
+          tabindex="-1"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-btn mb-3">
+                <button onclick="deleteModal()" class="btn btn-outline-danger">
+                  Clear
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="btn btn-success d-flex justify-content-center align-items-center"
+          data-bs-toggle="modal"
+          href="#exampleModalToggle"
+          role="button"
+          ><i class="fa-solid fa-bookmark"></i
+        ></a>
+        <div class="container">
+          <div class="quote-box rounded-3">
+            <h1 class="fs-2 p-3 position-relative">
+              <span class="text-success fs-4">'</span> Quote Of The Day
+              <span class="text-success fs-4">'</span>
+            </h1>
+            <div id="quote-generate" class="quote-text position-relative"></div>
+            <div
+              class="quote-btn d-flex justify-content-between align-items-center p-2"
+            >
+              <div class="quote-icons">
+                <div
+                  class="icon d-flex justify-content-center align-items-center column-gap-3"
+                >
+                  <i
+                    onclick="likeActive()"
+                    id="heart"
+                    class="fa-solid fa-heart"
+                  ></i>
+                  <i
+                    onclick="saveActive()"
+                    id="bookmark"
+                    class="fa-solid fa-bookmark"
+                  ></i>
+                  <i id="copy" class="fa-solid fa-copy"></i>
+                  <i id="volume" class="fa-solid fa-volume-high"></i>
+                </div>
+              </div>
+              <button onclick="getRandomNum()" class="btn btn-outline-success">
+                new quote
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
