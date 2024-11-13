@@ -104,18 +104,6 @@ function getRandomNum(){
     heartIcon.classList.remove("active");
     bookMarkIcon.classList.remove("active");
 }
-//  Saved Quote
-bookMarkIcon.addEventListener("click", function() {
-    var quoteText = {
-        quote: quotes[RandomNum].quote,
-        auth: quotes[RandomNum].author
-    }
-    savedQuotes.push(quoteText);
-    localStorage.setItem("quotes", JSON.stringify(savedQuotes))
-
-    updateModal()
-
-});
 
 function updateModal(){
     modalBody.innerHTML = '';
@@ -134,9 +122,8 @@ function updateModal(){
 }
 
 function likeActive(){
-    heartIcon.classList.toggle("active")
+    heartIcon.classList.toggle("active");
 };
-
 
 copyBtn.addEventListener("click", function(){
     var quoteText = quotes[RandomNum].quote;
@@ -148,8 +135,31 @@ volumeBtn.addEventListener("click", () => {
     speechSynthesis.speak(say);
 });
 
-function saveActive(){
-    bookMarkIcon.classList.toggle("active")
+function saveQuotes() {
+    var quoteText = {
+        quote: quotes[RandomNum].quote,
+        auth: quotes[RandomNum].author
+    };
+    var quoteIndex = -1;
+
+    for(var i = 0; i < savedQuotes.length; i++){
+        if(savedQuotes[i].quote === quoteText.quote && savedQuotes[i].auth === quoteText.auth){
+            quoteIndex = i; 
+            break; 
+        }
+    }
+
+    if (quoteIndex !== -1) {
+        savedQuotes.splice(quoteIndex, 1);
+        bookMarkIcon.classList.remove("active");
+    } else {
+        savedQuotes.push(quoteText);
+        bookMarkIcon.classList.add("active");
+    }
+
+    localStorage.setItem("quotes", JSON.stringify(savedQuotes));
+
+    updateModal();
 }
 
 function deleteModal(){
@@ -159,3 +169,4 @@ function deleteModal(){
     heartIcon.classList.remove("active");
     updateModal()
 }
+

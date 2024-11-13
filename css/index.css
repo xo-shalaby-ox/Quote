@@ -67,13 +67,29 @@
 }
 .quote .quote-btn .quote-icons i{
     font-size: 20px;
-    color: #fff;
+    color: #ffffffc5;
     cursor: pointer;
     transition: .5s;
 }
 .quote .quote-btn button{
     border-radius: 40px;
     text-transform: capitalize ;
+}
+.quote .quote-btn .quote-icons i:hover:nth-child(1){
+    transform: translateY(-4px);
+    color: red;
+}
+.quote .quote-btn .quote-icons i:hover:nth-child(2){
+    transform: translateY(-4px);
+    color: yellow;
+}
+.quote .quote-btn .quote-icons i:hover:nth-child(3){
+    transform: translateY(-4px);
+    color: rgba(0, 0, 0, 0.795);
+}
+.quote .quote-btn .quote-icons i:hover:nth-child(4){
+    transform: translateY(-4px);
+    color: rgba(0, 0, 255, 0.863);
 }
 .active{
     color: red !important;
@@ -91,6 +107,57 @@
     border-radius: 0 8px 8px 0;
 }
 
+.button-quote {
+    --color: rgba(0, 128, 0, 0.692);
+    font-style: italic;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: 1px solid var(--color);
+    transition: color 0.5s;
+    z-index: 1;
+    font-size: 15px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.753);
+    background-color: transparent;
+}
+
+.button-quote:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.button-quote:hover {
+    color: #fff;
+}
+
+.button-quote:before {
+    top: 100%;
+    left: 100%;
+    transition: all 0.7s;
+}
+
+.button-quote:hover:before {
+    top: -30px;
+    left: -30px;
+}
+
+.button-quote:active:before {
+    background: rgba(0, 128, 0, 0.658);
+    transition: background 0s;
+}
+
 /* BREAK POINT */
 
 /* Large Media Screen */
@@ -105,3 +172,5 @@
         width: 90%;
     }
 }
+
+
